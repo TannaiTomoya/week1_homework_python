@@ -27,9 +27,9 @@ while True:
     print(f"--- ターン{turn} ---")
     gokuu.punch(vegita)
     if vegita.hp == 0:
-        print("ベジータは倒れた! 悟空の勝利!")
+        print(f"{vegita.name}は倒れた! {gokuu.name}の勝利!")
         break
     vegita.punch(gokuu)
     if gokuu.hp == 0:
-        print("悟空は倒れた! ベジータの勝利!")
+        print(f"{gokuu.name}は倒れた! {vegita.name}の勝利!")
         break
