@@ -7,7 +7,29 @@ class Fighter:
 
     def super_saiyan(self):
         self.attack *= 2
+
+    def punch(self,opponent):
+        damage = self.attack - opponent.defense
+        opponent.hp -= damage
+        if opponent.hp < 0:
+            opponent.hp = 0
+        print(f"{self.name}の攻撃! {opponent.name}に{damage}のダメージ! ({opponent.name}のHP: {opponent.hp})")
+
+
 gokuu = Fighter("悟空",1000,100,50)
 vegita = Fighter("ベジータ",1000,80,100)
+gokuu.super_saiyan()
+print(f"{gokuu.name}はスーパーサイヤ人に変身した! 攻撃力: {gokuu.attack}")
 
-
+turn = 0
+while True:
+    turn += 1
+    print(f"--- ターン{turn} ---")
+    gokuu.punch(vegita)
+    if vegita.hp == 0:
+        print("ベジータは倒れた! 悟空の勝利!")
+        break
+    vegita.punch(gokuu)
+    if gokuu.hp == 0:
+        print("悟空は倒れた! ベジータの勝利!")
+        break
